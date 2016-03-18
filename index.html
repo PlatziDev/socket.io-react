@@ -1,0 +1,101 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Socket.io-react by sergiodxa</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-light.css">
+    <meta name="viewport" content="width=device-width">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Socket.io-react</h1>
+        <p>A High-Order component to connect React and Socket.io easily</p>
+
+        <p class="view"><a href="https://github.com/sergiodxa/socket.io-react">View the Project on GitHub <small>sergiodxa/socket.io-react</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/sergiodxa/socket.io-react/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/sergiodxa/socket.io-react/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/sergiodxa/socket.io-react">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
+<a id="socketio-react" class="anchor" href="#socketio-react" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>socket.io-react</h1>
+
+<p>A High-Order component to connect React and Socket.io easily.</p>
+
+<h2>
+<a id="api" class="anchor" href="#api" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>API</h2>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-k">import</span> {
+  <span class="pl-smi">SocketProvider</span>,
+  <span class="pl-smi">socketConnect</span>,
+} <span class="pl-k">from</span> <span class="pl-s"><span class="pl-pds">'</span>socket.io-react<span class="pl-pds">'</span></span>;</pre></div>
+
+<h3>
+<a id="socketprovidersocket" class="anchor" href="#socketprovidersocket" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>SocketProvider(socket?)</h3>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-k">import</span> { <span class="pl-smi">SocketProvider</span> } <span class="pl-k">from</span> <span class="pl-s"><span class="pl-pds">'</span>socket.io-react<span class="pl-pds">'</span></span>;
+<span class="pl-k">import</span> <span class="pl-smi">io</span> <span class="pl-k">from</span> <span class="pl-s"><span class="pl-pds">'</span>socket.io-client<span class="pl-pds">'</span></span>;
+
+<span class="pl-k">import</span> <span class="pl-smi">App</span> <span class="pl-k">from</span> <span class="pl-s"><span class="pl-pds">'</span>./containers/App<span class="pl-pds">'</span></span>;
+
+<span class="pl-k">const</span> <span class="pl-c1">socket</span> <span class="pl-k">=</span> <span class="pl-smi">io</span>.<span class="pl-en">connect</span>(<span class="pl-c1">process</span>.<span class="pl-smi">env</span>.<span class="pl-c1">SOCKET_URL</span>);
+<span class="pl-smi">socket</span>.<span class="pl-en">on</span>(<span class="pl-s"><span class="pl-pds">'</span>message<span class="pl-pds">'</span></span>, <span class="pl-smi">msg</span> <span class="pl-k">=&gt;</span> <span class="pl-en">console</span>.<span class="pl-c1">log</span>(msg));
+
+<span class="pl-k">const</span> <span class="pl-c1">DOMNode</span> <span class="pl-k">=</span> <span class="pl-c1">document</span>.<span class="pl-c1">getElementById</span>(<span class="pl-s"><span class="pl-pds">'</span>renderTarget<span class="pl-pds">'</span></span>);
+
+<span class="pl-en">render</span>(
+  <span class="pl-k">&lt;</span>SocketProvider socket<span class="pl-k">=</span>{socket}<span class="pl-k">&gt;</span>
+    <span class="pl-k">&lt;</span>App <span class="pl-k">/</span><span class="pl-k">&gt;</span>
+  <span class="pl-k">&lt;</span><span class="pl-k">/</span>SocketProvider<span class="pl-k">&gt;</span>,
+  DOMNode
+);</pre></div>
+
+<ul>
+<li>
+<code>socket</code> property is <code>false</code> by default.</li>
+</ul>
+
+<h3>
+<a id="socketconnecttarget" class="anchor" href="#socketconnecttarget" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>socketConnect(Target)</h3>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-k">import</span> { <span class="pl-smi">socketConnect</span> } <span class="pl-k">from</span> <span class="pl-s"><span class="pl-pds">'</span>socket.io-react<span class="pl-pds">'</span></span>;
+
+<span class="pl-k">function</span> <span class="pl-en">App</span>(<span class="pl-smi">props</span>) {
+  <span class="pl-k">function</span> <span class="pl-en">sendMessage</span>() {
+    <span class="pl-smi">props</span>.<span class="pl-smi">socket</span>.<span class="pl-en">emit</span>(<span class="pl-s"><span class="pl-pds">'</span>message<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>Hello world!<span class="pl-pds">'</span></span>);
+  }
+
+  <span class="pl-k">return</span> (
+    <span class="pl-k">&lt;</span>button onClick<span class="pl-k">=</span>{sendMessage}<span class="pl-k">&gt;</span>
+      Send<span class="pl-k">!</span>
+    <span class="pl-k">&lt;</span><span class="pl-k">/</span>button<span class="pl-k">&gt;</span>
+  );
+}
+
+<span class="pl-k">export</span> <span class="pl-v">default</span> <span class="pl-smi">socketConnect</span>(App);</pre></div>
+
+<ul>
+<li>
+<code>socketConnect</code> can be used as a decorator (using <a href="https://github.com/loganfsmyth/babel-plugin-transform-decorators-legacy"><strong>babel-plugin-transform-decorators-legacy</strong></a>)</li>
+</ul>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/sergiodxa">sergiodxa</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
