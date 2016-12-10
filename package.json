@@ -1,6 +1,6 @@
 {
   "name": "socket.io-react",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A High-Order Component to connect React and Socket.io",
   "main": "build/index.js",
   "scripts": {
@@ -8,19 +8,19 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sergiodxa/socket.io-react.git"
+    "url": "git+https://github.com/PlatziDev/socket.io-react.git"
   },
   "keywords": [
     "react",
     "socket.io",
     "websocket"
   ],
-  "author": "Sergio Daniel Xalambrí <sergio@xalambri.com.ar> (http://sergio.xalambri.com.ar/)",
+  "author": "Sergio Daniel Xalambrí <sergio@xalambri.xyz> (http://sergio.xalambri.xyz/)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/sergiodxa/socket.io-react/issues"
+    "url": "https://github.com/PlatziDev/socket.io-react/issues"
   },
-  "homepage": "http://sergio.xalambri.com.ar/socket.io-react/",
+  "homepage": "https://github.com/PlatziDev/socket.io-react#readme",
   "devDependencies": {
     "babel": "6.5.2",
     "babel-cli": "6.6.5",
