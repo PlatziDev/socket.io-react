@@ -1,6 +1,6 @@
 {
   "name": "socket.io-react",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "A High-Order Component to connect React and Socket.io",
   "main": "build/index.js",
   "scripts": {
@@ -26,6 +26,7 @@
     "babel": "6.5.2",
     "babel-cli": "6.6.5",
     "babel-plugin-transform-class-properties": "6.6.0",
+    "babel-plugin-transform-es2015-block-scoping": "6.20.0",
     "babel-plugin-transform-es2015-classes": "6.6.5",
     "babel-plugin-transform-es2015-modules-commonjs": "6.7.0",
     "babel-plugin-transform-es2015-spread": "6.6.5",
