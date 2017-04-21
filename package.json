@@ -31,7 +31,8 @@
     "babel-plugin-transform-es2015-modules-commonjs": "6.7.0",
     "babel-plugin-transform-es2015-spread": "6.6.5",
     "babel-plugin-transform-react-constant-elements": "6.5.0",
-    "babel-plugin-transform-react-inline-elements": "6.6.5"
+    "babel-plugin-transform-react-inline-elements": "6.6.5",
+    "prop-types": "^15.5.8"
   },
   "peerDependencies": {
     "socket.io-client": "^1.4.5"
